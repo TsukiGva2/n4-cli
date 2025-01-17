@@ -3,13 +3,16 @@ package main
 import (
 	"flag"
 	"fmt"
+	"time"
 
-	"github.com/MyTempoesp/flick"
+	"github.com/TsukiGva2/flick"
 )
 
 func main() {
 
 	quietPtr := flag.Bool("q", false, "Quiet run")
+	timeout := flag.Int("q", 2000, "Timeout (ms) (0 -> no timeout)")
+
 	dev := flag.String("o", "/dev/ttyUSB0", "Output to specified serial device")
 
 	flag.Parse()
@@ -27,7 +30,7 @@ func main() {
 		return
 	}
 
-	fth, err := flick.NewForth(*dev)
+	fth, err := flick.NewForth(*dev, time.Duration(*timeout)*time.Millisecond)
 
 	if err != nil {
 
