@@ -11,7 +11,7 @@ import (
 func main() {
 
 	quietPtr := flag.Bool("q", false, "Quiet run")
-	timeout := flag.Int("q", 2000, "Timeout (ms) (0 -> no timeout)")
+	timeout := flag.Int("t", 2000, "Timeout (ms) (0 -> no timeout)")
 
 	dev := flag.String("o", "/dev/ttyUSB0", "Output to specified serial device")
 
